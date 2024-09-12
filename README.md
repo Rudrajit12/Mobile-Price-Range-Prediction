@@ -1,95 +1,118 @@
-# Mobile Price Range Prediction
+# **Mobile Price Range Prediction**
 
-### Problem Statement:
-
-In the competitive mobile phone market companies want to understand sales data of mobile phones and factors which drive the prices. Mobile phones come in all sorts of
-prices, features, specifications etc and estimating the price of mobile phones is an important part of consumer strategy.
-
-The objective of this project is to find out some relation between features of a mobile phone and its selling price. In this problem, we do not have to predict the actual prices but a price range indicating how high the price is. The dataset contains 2000 records of mobile phone information with 20 features which is a mix of categorical features and numerical features.
+![Mobile](https://img.shields.io/badge/Project-Classification-blue)  
+![Python](https://img.shields.io/badge/Python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) ![Pandas](https://img.shields.io/badge/Pandas-2C2D72?style=for-the-badge&logo=pandas&logoColor=white) ![Matplotlib](https://img.shields.io/badge/Matplotlib-3776AB?style=for-the-badge&logo=matplotlib&logoColor=white) ![Seaborn](https://img.shields.io/badge/Seaborn-43B02A?style=for-the-badge&logo=seaborn&logoColor=white) ![Scikit-learn](https://img.shields.io/badge/Scikit--learn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white)  
+**Other Tools**: NumPy, Jupyter Notebooks
 
 ---
-### Data Description:
 
-The dataset contains 2000 records and 21 features which consists of:
+## **Overview**
 
-● Battery_power: Total energy a battery can store in one time measured in mAh.
-
-● Blue: Has bluetooth or not
-
-● Clock_speed: Speed at which the microprocessor executes instructions
-
-● Dual_sim: Has dual sim support or not
-
-● Fc: Front camera megapixels
-
-● Four_g: Has 4G access or not
-
-● Int_memory: Internal memory in gigabytes
-
-● M_dep: Mobile depth in cm
-
-● Mobile_wt: Weight of mobile phone
-
-● N_cores: Number of cores of processor
-
-● Pc: Primary camera megapixels
-
-● Px_height: Pixel resolution height
-
-● Px_width: Pixel resolution width
-
-● Ram: Random Access Memory in megabytes
-
-● Sc_h: Screen height of mobile in cm
-
-● Sc_w: Screen width of mobile in cm
-
-● Talk_time: Longest time that a single battery charge will last when you are talking over phone
-
-● Three_g: Has 3G access or not
-
-● Touch_screen: Has touch screen or not
-
-● Wifi: Has wifi or not
-
-● Price_range: This is the target variable with values of 0(low cost), 1(medium cost), 2(high cost) and 3(very high cost).
+This project predicts the price range of mobile phones based on their features using classification algorithms. We analyzed key specifications like **RAM**, **battery power**, and **camera quality** to classify phones into one of four price categories: **Low**, **Medium**, **High**, and **Very High**.
 
 ---
-### Data Exploration:
 
-* The distribution of the target variable shows us that the classes are almost balanced as the difference between the classes is minimal. Thus, we know
-that there’s no class imbalance problem here. All the classes have around 450 records.
+## **Problem Statement**
 
-* The distribution of the categorical features are almost similar to each other except the feature ‘three_g’ which contains very few mobile phones which
-do not have 3G access. We can infer that almost all phones have 3G access if not 4G.
-
-* Most of the numerical features follow an uniform distribution except a few features like fc, px_height, and sc_w follow a right skewed distribution.
-
-* The distribution of categorical features across different price ranges stays the same. There is a slight increase in the count of mobile phones in the very
-high cost category for each categorical feature. Thus we can infer that the more we pay, the more choices we can get.
-
-* The distribution of the numerical features across different price ranges shows us that only the features RAM, battery power, px_height and px_width
-increase with an increase in price. These features are the most influential in determining the price ranges.
-
-* RAM has the strongest correlation with the target variable followed by battery power, px_height and px_width. Rest of the numerical features have a
-very low correlation with the target variable.
+With mobile phone features evolving rapidly, predicting the price category based on specifications is essential for competitive pricing. This project uses machine learning to solve this classification problem, providing businesses with insights to strategically price their products.
 
 ---
-### Modeling:
 
-We have used several classification models to predict the mobile price range and compare their performances.
+## **Dataset Description**
 
-Models | Accuracy | Precision | Recall | ROC-AUC
------- | -------- | --------- | ------ | -------
-Logistic Regression | 96.43% | 96.45% | 96.43% | 99.75%
-SVM | 96.15% | 96.16% | 96.15% | 99.87%
-KNN | 91.76% | 91.76% | 91.76% | 97.75%
-XGBoost | 90.66% | 90.75% | 90.66% | 99.09%
-Random Forest | 89.56% | 89.58% | 89.56% | 98.88%
-Gradient Boosting | 89.28% | 89.24% | 89.28% | 98.79%
+- **[Download Dataset](https://drive.google.com/file/d/1tbaIkP79hq9wagJ3w4ZZMilOtzV48twy/view?usp=sharing)**  
+The dataset contains 2000 records of mobile phone specifications:
+  - **RAM**: Memory capacity of the phone
+  - **Battery Power**: Battery capacity in mAh
+  - **Pixel Resolution**: Screen resolution in pixels
+  - **Camera Specs**: Front and rear camera megapixels
+  - **Additional Features**: Bluetooth, 4G, etc.
 
-All the algorithms have provided us with a good result for predicting the mobile price range. As our target classes are balanced, we can consider accuracy as an important metric to measure and compare our models. The accuracy achieved by most of the models is above 90% which proves that the models have classified the data well.
+---
 
-Logistic Regression along with SVM has performed the best out of all the models as they have achieved an accuracy of 96% and also scored well in precision, recall and roc auc. The tree based methods have performed poorly in comparison to the other classification models implemented.
+## **Analysis Approach**
 
-***
+1. **Data Preprocessing**:  
+   - No missing values.
+   - Scaled numerical features for better model performance.
+
+2. **Exploratory Data Analysis (EDA)**:  
+   - Visualized feature distributions and identified important variables affecting price range.
+   - Analyzed the correlation between features using heatmaps.
+
+3. **Model Development**:  
+   - Applied classification algorithms: **Logistic Regression**, **SVM**, **KNN**, **Random Forest**, **XGBoost**, and **Gradient Boosting Classifier**.
+   - Evaluated model performance using **accuracy**, **precision**, **recall**, and **ROC AUC**.
+
+---
+
+## **Key Insights**
+
+### 1. Feature Importance
+- **RAM** emerged as the most important factor influencing the price range.
+- **Battery Power** and **Pixel Resolution** were also critical features for classification.
+
+### 2. RAM Distribution Across Price Ranges
+Higher RAM significantly increases the likelihood of a phone being categorized in the higher price range.
+
+### 3. Camera Quality Impact
+While **camera specifications** contribute to the classification, they have a relatively smaller impact compared to RAM and battery power.
+
+---
+
+## **Model Performance**
+
+| **Model**              | **Accuracy** | **Precision** | **Recall** | **ROC AUC** |
+|------------------------|--------------|---------------|------------|-------------|
+| **Logistic Regression** | 96.43%       | 96.45%        | 96.43%     | 99.75%      |
+| **SVM**                | 96.15%       | 96.16%        | 96.15%     | 99.87%      |
+| **KNN**                | 91.76%       | 91.76%        | 91.76%     | 97.75%      |
+| **XGBoost**            | 90.66%       | 90.75%        | 90.66%     | 99.09%      |
+| **Random Forest**       | 89.56%       | 89.58%        | 89.56%     | 98.88%      |
+| **Gradient Boosting**   | 89.28%       | 89.24%        | 89.28%     | 98.79%      |
+
+### Best Model: **Logistic Regression**  
+The Logistic Regression model provided the highest accuracy of **96.43%** with excellent precision and recall scores.
+
+---
+
+## **Challenges & Limitations**
+
+1. **Feature Engineering**: While the dataset included critical phone features, additional features (e.g., brand, user reviews) could improve model accuracy.
+2. **Limited Scope**: The model is trained on a relatively small dataset and may not generalize well to other datasets.
+3. **Hyperparameter Tuning**: Optimizing hyperparameters for models like **SVM** and **XGBoost** could further improve performance.
+
+---
+
+## **Future Scope**
+
+1. **Feature Expansion**: Including additional factors like **brand** or **customer reviews** could provide deeper insights.
+2. **Predictive Pricing**: Using regression models to predict the exact price instead of classifying into price ranges.
+3. **Model Deployment**: Implementing a web app for real-time mobile price predictions based on user inputs.
+
+---
+
+## **Resources**
+
+- **IPYNB Notebook**: [Colab Link](https://colab.research.google.com/drive/1XzGN-l_XBfdbSexgw3hG-bX5RQuR0vFg?usp=sharing)  
+- **GitHub Repository**: [GitHub Link](https://github.com/Rudrajit12/Mobile-Price-Range-Prediction)
+
+---
+
+## **References**
+
+1. [Kaggle - Mobile Price Classification](https://www.kaggle.com/iabhishekofficial/mobile-price-classification)
+2. [Towards Data Science - Classification Models](https://towardsdatascience.com/classification-models-overview-5a5f7e54d9e1)
+
+---
+
+## **About the Author**
+
+**Author**: Rudrajit Bhattacharyya  
+This project was developed as part of the **AlmaBetter Full Stack Data Science** program.
+
+- **Email**: [rudrajitb24@gmail.com](mailto:rudrajitb24@gmail.com)  
+- **LinkedIn**: [LinkedIn Profile](https://www.linkedin.com/in/rudrajitb/)  
+- **GitHub**: [GitHub Profile](https://github.com/Rudrajit12)
+
+---
