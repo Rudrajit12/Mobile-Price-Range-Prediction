@@ -78,6 +78,18 @@ The Logistic Regression model provided the highest accuracy of **96.43%** with e
 
 ---
 
+## **Impact & Implications**
+
+The project's findings are like treasure for phone companies! They help these companies make smart decisions about how much to charge for their phones. Here's how it helps:
+
+1. **Being the Best Price**: Companies can figure out exactly how much their phones should cost, so they can compete well with other companies. They can make sure their prices are just right to attract customers and still make money.
+2. **Finding the Right Spot**: Knowing what features make phones more expensive helps companies decide where their phones fit best in the market. They can aim their phones at people who want fancy stuff or those looking for a good deal.
+3. **Standing Out**: By knowing what makes their phones pricier, companies can make them special. They can show off cool features or let people customize their phones, making them different from others in the market.
+4. **Getting the Word Out**: Understanding what prices people are willing to pay and what they like helps companies advertise better. They can make ads that speak to different kinds of customers, making their ads more effective.
+5. **Making Better Choices**: With all this smart info, the big bosses at these companies can make better decisions about everything from making new phones to how much to spend on ads. It helps them use their time and money in the best way possible, leading to more success for their business.
+
+---
+
 ## **Challenges & Limitations**
 
 1. **Feature Engineering**: While the dataset included critical phone features, additional features (e.g., brand, user reviews) could improve model accuracy.
